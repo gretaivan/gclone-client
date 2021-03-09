@@ -1,0 +1,29 @@
+{
+  "name": "gclone-client",
+  "version": "1.0.0",
+  "description": "[x] Create review branch\r [] index.html\r [] eventHandler.js \r [] eventListeners.js\r [] style.css",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gretaivan/gclone-client.git"
+  },
+  "keywords": [
+    "API",
+    "javascript",
+    "searchengine"
+  ],
+  "author": "Chris & Greta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gretaivan/gclone-client/issues"
+  },
+  "homepage": "https://github.com/gretaivan/gclone-client#readme",
+  "devDependencies": {
+    "concurrently": "^6.0.0",
+    "jest": "^26.6.3",
+    "watchify": "^4.0.0"
+  }
+}
