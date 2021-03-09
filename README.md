@@ -10,18 +10,19 @@
 * ```npm test``` to run the tests
 
 ## Changelog
-[x] README file
-[x] Boiler plate of the project 
 
 ### index.html
 [x] added form with search bar and 2 buttons 
+
+### index.js
+[x] refactored to reduce uneeded code by creating the target elements and listeners for them
 
 
 ### listeners.js
 [x] added the event listener and handler for button search
 [x] added the event listener and handler for feeling lucky
 [x] fixed the query formating that send request to the server
-[x] 
+[x] refactored event handlers
 
 ### data.js
 [x] static file 
@@ -45,5 +46,7 @@
 
 ### Other
 [x] Create review branch
+[x] README file
+[x] Boiler plate of the project 
 [x] Create the static data to develop the client side without consuming API requests
 [ ] Hook the event handlers to send query to the server instead of static data
