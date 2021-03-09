@@ -26,6 +26,7 @@
 [x] function to get the result data
 [x] function to create the result list
 [x] function to create the formated one result sample and append it to the view
+[x] cleanup of the file
 
 ### data.js
 [x] static file 

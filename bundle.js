@@ -279,27 +279,14 @@ async function getData(keyword){
 
 
 function appendList(data){
-   // let resSect = document.querySelector('ul');
-    data.forEach(result => generateListItem(result)
-        // console.log(result)
-    );
-
-    // for(result of data){
-    //     console.log(result);
-
-    //     // let li =  document.createElement('li');
-    //     // li.textContent = result; 
-    //     // resSect.appendChild(li)
-        
-    //     // listItem.innerHTML = "hi";
-    // }
-    
+  
+    data.forEach(result => generateListItem(result));
+   
 }
 
 function generateListItem(result){
     const resSect = document.querySelector('#resultSection');
     const resultBox = document.createElement('div');
-    //let li =  document.createElement('li');
 
     //hyperlink
     let link = document.createElement('a');
@@ -321,11 +308,6 @@ function generateListItem(result){
     resultBox.append(link);
     resultBox.append(description);
     resSect.appendChild(resultBox);
-
-
-    console.log(result.snippet)
-   
-
 }
 
 
