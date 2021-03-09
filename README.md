@@ -46,7 +46,8 @@
 ### Design 
 [] add logo
 [] style the buttons
-[] format the output of the query
+[x] format the output of the query
+[] responsive design!
 
 ### Other
 [x] Create review branch

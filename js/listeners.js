@@ -24,7 +24,7 @@ function searchButton() {
 function getResultList(e){
     e.preventDefault(); 
     keyword = document.getElementById('search-bar').value;
-    console.log("I will return the result list for keyword: " + keyword);
+    console.log("Return of the result list for keyword: " + keyword);
     getData(keyword)
     
 
@@ -33,7 +33,7 @@ function getResultList(e){
 function getRandomResult(e){
     e.preventDefault(); 
     keyword = document.getElementById('search-bar').value;
-    console.log("I will redirect you to the result for keyword: " + keyword);
+    console.log("Redirection the result for keyword: " + keyword);
 
     getData(keyword);
 }
@@ -59,6 +59,7 @@ function appendList(data){
 function generateListItem(result){
     const resSect = document.querySelector('#resultSection');
     const resultBox = document.createElement('div');
+    resultBox.className = "result-box";
 
     //hyperlink
     let link = document.createElement('a');
