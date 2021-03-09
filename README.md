@@ -22,7 +22,10 @@
 [x] added the event listener and handler for button search
 [x] added the event listener and handler for feeling lucky
 [x] fixed the query formating that send request to the server
-[x] refactored event handlers
+[x] refactored event handlers to include smaller reusable functions
+[x] function to get the result data
+[x] function to create the result list
+[x] funcion to create the formated one result sample and append it to the view
 
 ### data.js
 [x] static file 
