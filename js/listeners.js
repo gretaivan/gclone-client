@@ -70,16 +70,33 @@ function appendList(data){
 
 function generateListItem(result){
     const resSect = document.querySelector('#resultSection');
+    const resultBox = document.createElement('div');
     //let li =  document.createElement('li');
-    //hyperlink
 
-    
+    //hyperlink
+    let link = document.createElement('a');
+    let resultLink = result.url;
+    link.setAttribute("href", resultLink)
+
     //header 
-    let h = document.createElement('h3');
-    h.textContent = result.title;
-    resSect.appendChild(h);
+    let textContent = `<h3>${result.title}</h3>`;
+
+    //assign clickable elements
+    link.innerHTML = resultLink+textContent;
 
     // description
+    let description = document.createElement('p');
+    description.textContent = result.snippet;
+    // let description = `<p>${result.snippet}</p>`
+    
+    
+    resultBox.append(link);
+    resultBox.append(description);
+    resSect.appendChild(resultBox);
+
+
+    console.log(result.snippet)
+   
 
 }
 
