@@ -4,7 +4,8 @@
   "description": "[x] Create review branch\r [] index.html\r [] eventHandler.js \r [] eventListeners.js\r [] style.css",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "dev": "concurrently \"watchify ./index.js -o bundle.js\" \"python -m http.server\""
   },
   "repository": {
     "type": "git",

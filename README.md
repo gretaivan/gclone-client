@@ -3,12 +3,15 @@
 ## Installation & Usage
 
 ### Installation
-* Open terminal and navigate to  ```server``` folder
-* Run ```npm install``` to install dependencies needed for server development and production
+* ```npm install``` to install dependencies 
 
 ### Usage
-* ```nodemon index.js``` for continuos server running whilst developing
-* ```npm start``` to launch server or if you do not require automatic updating whilst developing
+* ```npm run dev``` to run 
+* ```npm test``` to run the tests
+
+## Changelog
+
+
 
 ## TODO
 [x] Create review branch
@@ -17,7 +20,7 @@
 [] eventListeners.js
 [] style.css
 
-### Fucntionality 
+### Functionality 
 [] upon search button pressing send request to the server with search keyword
 [] feeling lucky button: 
     [] pass the keyword 
