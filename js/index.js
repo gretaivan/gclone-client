@@ -1,12 +1,10 @@
 // INITIAL
-// const listeners = require('./listeners')
+const listeners = require('./listeners')
 
-// listeners.searchButton()
-// listeners.luckyButton()
-const {submitKeyword, getResultList, getRandomResult} = require('./listeners');
+const { getResultList, getRandomResult } = require('./listeners');
 
-const searchBtn = document.getElementById('search-button');
-const luckyBtn = document.getElementById('lucky-button');
+// const searchBtn = document.getElementById('search-button');
+// const luckyBtn = document.getElementById('lucky-button');
 
 searchBtn.addEventListener('click', getResultList);
 luckyBtn.addEventListener('click', getRandomResult);
@@ -19,3 +17,6 @@ window.addEventListener("load", () => {
 document.getElementsByClassName('child')[0].addEventListener("click", () => {
     document.getElementById('search-bar').focus()
 })
+
+listeners.searchButton()
+listeners.luckyButton()
