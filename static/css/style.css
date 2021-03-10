@@ -1,3 +1,16 @@
+@font-face{
+  font-family: customFont;
+  src: url(\fonts\ProductSansBoldItalic.ttf);
+}
+
+h1{
+  /* font-family: customFont; */
+  font-size: 40px;
+  font-family: 'Comic Sans';
+
+}
+  
+
 * {
     box-sizing: border-box;
   }
@@ -100,7 +113,6 @@ input[type="submit"]:hover, input[type="submit"]:focus {
 }
 
 body{
-    box-sizing: border-box;
     color:#202124;
     font-family: arial,sans-serif;
 }
