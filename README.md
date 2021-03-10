@@ -42,8 +42,6 @@
 ### layout bugs
 - [ ] flex layout causes content to shift off left of screen on window resize
 - [ ] flex flow causes unpleasant break up of content when search alligned to top of screen
-=======
-
 
 
 ## TODO
@@ -55,7 +53,6 @@
     [x] select and redirect to the result with randomIndex
 
 ### Design 
-<<<<<<< HEAD
 - [x] search area that hides
     - [] add logo
     - [x] x in search bar to clear content on click
@@ -73,17 +70,6 @@
 - [x] Create the static data to develop the client side without consuming API requests
 - [x] Hook the event handlers to send query to the server instead of static data
 - [x] use function from server or add the logic to return only 10 results
-=======
-[] search area that hides
-    [] add logo
-    [] x in search bar to clear content on click
-[] style the buttons
-[] responsive design!
-[] some issues with content width being more uniform
-[] footer
-[] target 
-[] underline h3 header on hoevr
-[] emphasise the keyword in paragraph
 
 ### Other
 [x] Create review branch
