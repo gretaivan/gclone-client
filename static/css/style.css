@@ -25,6 +25,7 @@
   .parent {
     max-width:584px;
     width: calc(90% - 22px);
+    min-width: 360px;
   }
   
   .child {
@@ -48,8 +49,9 @@
   #search-bar {
     position: absolute;
     height: 42px;
-    width: calc(90% - 22px - 88px);
-    max-width: 504px;
+    width: calc(90% - 144px);
+    min-width: calc(360px - 122px);
+    max-width: calc(584px - 122px);
     margin-left: 44px;
     margin-top: 1px;
     border: none;
@@ -90,6 +92,11 @@ input[type="submit"]:hover, input[type="submit"]:focus {
     background-color: #f8f9fa;
     border: 1px solid #dadce0;
     color: #202124;
+}
+
+.input-button-cont {
+    display: flex;
+    flex-flow: row nowrap;
 }
 
 body{
