@@ -31,7 +31,7 @@
 
 ## Bugs
 - [x] client sends incorrectly formatted keyword as aquery to the server
-- [ ] content from old search needs to be destoryed on new search
+- [x] content from old search needs to be destoryed on new search
 - [ ] long load times - confusing - should tell user that query is running !
 - [x] does not identify listeners
 - [x] does not remove previous search results so new search results are not displayed
@@ -50,7 +50,7 @@
 
 ### Design 
 - [x] search area that hides
-    - [ ] add logo
+    - [x] add logo
     - [x] x in search bar to clear content on click
 - [x] style the buttons
 - [x] format the output of the query

@@ -21,6 +21,41 @@ async function getData(url = '') {
       getData
   }
 },{}],2:[function(require,module,exports){
+function geolocate() {
+    console.log("Geolocating")
+    if (window.navigator && window.navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(onGeolocateSuccess, onGeolocateError);
+   }
+}
+
+function onGeolocateSuccess(coordinates) {
+   const { latitude, longitude } = coordinates.coords;
+   console.log('Found coordinates: ', latitude, longitude);
+  appendLocation(latitude, longitude); 
+}
+
+function onGeolocateError(error) {
+   console.warn(error.code, error.message);
+
+   if (error.code === 1) {
+   // they said no
+   } else if (error.code === 2) {
+   // position unavailable
+   } else if (error.code === 3) {
+   // timeout
+   }
+}
+
+function appendLocation(latitude, longitude){
+    const footer = document.getElementById('location');
+    //let locationText = document.createElement('p');
+    footer.innerHTML = `<p>latitude: ${latitude}, longitude: ${longitude}</p>`
+}
+
+geolocate();
+
+exports.modules = { geolocate  };
+},{}],3:[function(require,module,exports){
 function layoutChange() {
     const searchArea = document.getElementsByClassName('search-container')[0]
     const form = document.querySelector('form')
@@ -50,11 +85,12 @@ module.exports = {
     layoutChange,
     renderInputClear
 }
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 // INITIAL
 // const listeners = require('./listeners')
 
 const listeners = require('./listeners');
+const { geolocate } = require('./geolocation');
 
 // const searchBtn = document.getElementById('search-button');
 // const luckyBtn = document.getElementById('lucky-button');
@@ -67,6 +103,8 @@ window.addEventListener("load", () => {
     document.getElementById('search-bar').focus()
 })
 
+// window.addEventListener("load", geolocate);
+
 document.getElementsByClassName('child')[0].addEventListener("click", () => {
     document.getElementById('search-bar').focus()
 })
@@ -75,7 +113,10 @@ listeners.searchBarHelper()
 listeners.searchButton()
 listeners.luckyButton()
 
-},{"./listeners":4}],4:[function(require,module,exports){
+geolocate;
+
+
+},{"./geolocation":2,"./listeners":5}],5:[function(require,module,exports){
 const apiFuncs = require('./api');
 const handlerFuncs = require('./handlers')
 // IMPORTANT: 
@@ -204,4 +245,4 @@ module.exports = {
 }
 
 //searchButton,  submitKeyword,
-},{"./api":1,"./handlers":2}]},{},[3]);
+},{"./api":1,"./handlers":3}]},{},[4]);

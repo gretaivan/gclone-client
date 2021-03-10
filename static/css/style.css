@@ -239,3 +239,31 @@ p{
     margin-block-start: 3px;
     margin-block-end: 0;
 }
+
+footer{
+  background-color: #F2F2F2;
+  color: #DADCE0;
+  width:100%;
+  position:absolute;
+  bottom:0;
+  left:0;
+}
+
+#location{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  
+  border-bottom: 1px solid #DADCE0;
+  padding: 15px 30px;
+  
+}
+
+#lower-footer{
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+}

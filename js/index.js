@@ -2,6 +2,7 @@
 // const listeners = require('./listeners')
 
 const listeners = require('./listeners');
+const { geolocate } = require('./geolocation');
 
 // const searchBtn = document.getElementById('search-button');
 // const luckyBtn = document.getElementById('lucky-button');
@@ -14,6 +15,8 @@ window.addEventListener("load", () => {
     document.getElementById('search-bar').focus()
 })
 
+// window.addEventListener("load", geolocate);
+
 document.getElementsByClassName('child')[0].addEventListener("click", () => {
     document.getElementById('search-bar').focus()
 })
@@ -21,3 +24,6 @@ document.getElementsByClassName('child')[0].addEventListener("click", () => {
 listeners.searchBarHelper()
 listeners.searchButton()
 listeners.luckyButton()
+
+geolocate;
+
