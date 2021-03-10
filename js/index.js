@@ -25,14 +25,5 @@ listeners.searchBarHelper()
 listeners.searchButton()
 listeners.luckyButton()
 
+geolocate;
 
-
-console.log("location: " + geolocate)
-
-const location = document.getElementById('location'); 
-
-let locationText = document.createElement('p');
-locationText.innerHTML = geolocate;
-location.append(locationText);
-
-location.style.backgroundColor = 'grey';

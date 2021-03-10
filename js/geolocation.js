@@ -1,13 +1,14 @@
 function geolocate() {
+    console.log("Geolocating")
     if (window.navigator && window.navigator.geolocation) {
-       navigator.geolocation.getCurrentPosition(onGeolocateSuccess, onGeolocateError);
+        navigator.geolocation.getCurrentPosition(onGeolocateSuccess, onGeolocateError);
    }
 }
 
 function onGeolocateSuccess(coordinates) {
    const { latitude, longitude } = coordinates.coords;
    console.log('Found coordinates: ', latitude, longitude);
-   return coordinates.coords;
+  appendLocation(latitude, longitude); 
 }
 
 function onGeolocateError(error) {
@@ -22,4 +23,12 @@ function onGeolocateError(error) {
    }
 }
 
-exports.modules = geolocate;
+function appendLocation(latitude, longitude){
+    const footer = document.getElementById('location');
+    //let locationText = document.createElement('p');
+    footer.innerHTML = `<p>latitude: ${latitude}, longitude: ${longitude}</p>`
+}
+
+geolocate();
+
+exports.modules = { geolocate  };
