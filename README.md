@@ -27,7 +27,7 @@
 [x] function to create the result list
 [x] function to create the formated one result sample and append it to the view
 [x] cleanup of the file
-[] amending the result population function
+[x] amending the result population function so it deletes the old search
 
 ### style.css
 [x] styled the initial page
@@ -66,6 +66,7 @@
 [] target 
 [] underline h3 header on hoevr
 [] emphasise the keyword in paragraph
+[] when you hover over input add text cursor
 
 ### Other
 [x] Create review branch
