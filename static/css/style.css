@@ -2,6 +2,15 @@
     box-sizing: border-box;
   }
 
+  .search-container h1 {
+      text-align: center;
+      margin-bottom: 20px
+  }
+
+  .search-container {
+      margin-top: calc(48px * 3)
+  }
+
   form {
     display: flex;
     flex-direction: column;
@@ -15,7 +24,7 @@
   
   .parent {
     max-width:584px;
-    width: calc(80% - 22px);
+    width: calc(90% - 22px);
   }
   
   .child {
@@ -39,7 +48,7 @@
   #search-bar {
     position: absolute;
     height: 42px;
-    width: calc(80% - 22px - 88px);
+    width: calc(90% - 22px - 88px);
     max-width: 504px;
     margin-left: 44px;
     margin-top: 1px;

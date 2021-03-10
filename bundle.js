@@ -225,6 +225,15 @@ const luckyBtn = document.getElementById('lucky-button');
 
 searchBtn.addEventListener('click', getResultList);
 luckyBtn.addEventListener('click', getRandomResult)
+
+// quick functions to target search bar -> move these to listeners?
+window.addEventListener("load", () => {
+    document.getElementById('search-bar').focus()
+})
+
+document.getElementsByClassName('child')[0].addEventListener("click", () => {
+    document.getElementById('search-bar').focus()
+})
 },{"./listeners":3}],3:[function(require,module,exports){
 //const apiFuncs = require('./api');
 const result = require('./data');
