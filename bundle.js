@@ -235,16 +235,46 @@ const data = [
 
 exports.modules = data; 
 },{}],3:[function(require,module,exports){
-// INITIAL
-const listeners = require('./listeners')
+function layoutChange() {
+    const searchArea = document.getElementsByClassName('search-container')[0]
+    const form = document.querySelector('form')
+    const buttonGroup = document.getElementsByClassName('input-button-cont')[0]
+    const title = document.querySelector('h1')
+    searchArea.style.marginTop = 0
+    searchArea.style.paddingBottom = '22px'
+    searchArea.style.borderBottom = '1px solid #ebebeb'
+    buttonGroup.style.paddingTop = 0
+    title.style.padding = '0 12px'
+    title.style.margin = 0
+    title.style.fontSize = '24px'
+    form.className = 'form-top'
+}
 
-// const {submitKeyword, getResultList, getRandomResult} = require('./listeners');
+const clearBtn = document.getElementById('clear-btn')
+function renderInputClear(data) {
+    if (data.length > 0) {
+        clearBtn.style.display = "flex"
+    }
+    else {
+        clearBtn.style.display = "none"
+    }
+}
+
+module.exports = {
+    layoutChange,
+    renderInputClear
+}
+},{}],4:[function(require,module,exports){
+// INITIAL
+// const listeners = require('./listeners')
+
+const listeners = require('./listeners');
 
 // const searchBtn = document.getElementById('search-button');
 // const luckyBtn = document.getElementById('lucky-button');
 
-// searchBtn.addEventListener('click', listeners.searchButton)
-// luckyBtn.addEventListener('click', listeners.luckyButton)
+// searchBtn.addEventListener('click', getResultList);
+// luckyBtn.addEventListener('click', getRandomResult);
 
 // quick functions to target search bar -> move these to listeners?
 window.addEventListener("load", () => {
@@ -255,29 +285,43 @@ document.getElementsByClassName('child')[0].addEventListener("click", () => {
     document.getElementById('search-bar').focus()
 })
 
+listeners.searchBarHelper()
 listeners.searchButton()
 listeners.luckyButton()
-},{"./listeners":4}],4:[function(require,module,exports){
+
+},{"./listeners":5}],5:[function(require,module,exports){
 const apiFuncs = require('./api');
 const result = require('./data');
-
+const handlerFuncs = require('./handlers')
 // IMPORTANT: 
 // uncomment to use server api
+const searchbar = document.getElementById('search-bar')
+
+function searchBarHelper() {
+    searchbar.addEventListener("input", () => handlerFuncs.renderInputClear(searchbar.value))
+}
+
+const clearBtn = document.getElementById('clear-btn')
+clearBtn.addEventListener("click", (e) => {
+    e.preventDefault()
+    searchbar.value = ''
+})
+
+
 function searchButton() {
     document.getElementById('search-button').addEventListener("click", async (e) => {
-        const query = document.getElementById('search-bar').value
+        const query = searchbar.value
         e.preventDefault()
         const data = await apiFuncs.getData(`http://localhost:3000/search/${query}`)       
         // handle responses
-        console.log(data)
         appendList(data.body)
+        handlerFuncs.layoutChange()
     })
 } 
 
-
 function luckyButton() {
     document.getElementById('lucky-button').addEventListener("click", async (e) => {
-        const query = document.getElementById('search-bar').value
+        const query = searchbar.value
         e.preventDefault()
         // IMPORTANT:
         // Uncomment to use api
@@ -340,8 +384,9 @@ function generateListItem(result){
 
 module.exports = {
     luckyButton,
-    searchButton
+    searchButton,
+    searchBarHelper
 }
 
 //searchButton,  submitKeyword,
-},{"./api":1,"./data":2}]},{},[3]);
+},{"./api":1,"./data":2,"./handlers":3}]},{},[4]);
