@@ -12,13 +12,14 @@
 ## Changelog
 
 ### index.html
-[x] added form with search bar and 2 buttons 
+- [x] added form with search bar and 2 buttons 
 
 ### index.js
-[x] refactored to reduce uneeded code by creating the target elements and listeners for them
+- [x] refactored to reduce uneeded code by creating the target elements and listeners for them
 
 
 ### listeners.js
+<<<<<<< HEAD
 [x] added the event listener and handler for button search
 [x] added the event listener and handler for feeling lucky
 [x] fixed the query formating that send request to the server
@@ -36,15 +37,33 @@
 [x] creates the custom made fonts
 [] logo styling
 
+=======
+- [x] added the event listener and handler for button search
+- [x] added the event listener and handler for feeling lucky
+- [x] fixed the query formating that send request to the server
+- [x] refactored event handlers to include smaller reusable functions
+- [x] function to get the result data
+- [x] function to create the result list
+- [x] function to create the formated one result sample and append it to the view
+- [x] cleanup of the file
+>>>>>>> 8bed222937c27e63bdff4b383cd61d4cd7aa5422
 
 ### data.js
-[x] static file 
+- [x] static file 
 
 
 ## Bugs
-[x] client sends incorrectly formatted keyword as aquery to the server
-[x] does not identify listeners
-[x] does not remove previous search results so new search results are not displayed
+<<<<<<< HEAD
+- [x] client sends incorrectly formatted keyword as aquery to the server
+- [ ] content from old search needs to be destoryed on new search
+- [ ] long load times - confusing - should tell user that query is running !
+- [x] does not identify listeners
+- [x] does not remove previous search results so new search results are not displayed
+### layout bugs
+- [ ] flex layout causes content to shift off left of screen on window resize
+- [ ] flex flow causes unpleasant break up of content when search alligned to top of screen
+=======
+
 
 
 ## TODO
@@ -53,9 +72,28 @@
 [x] feeling lucky button: 
     [x] pass the keyword 
     [x] then generate random index for the search result
-    [] select and redirect to the result with randomIndex
+    [x] select and redirect to the result with randomIndex
 
 ### Design 
+<<<<<<< HEAD
+- [x] search area that hides
+    - [] add logo
+    - [x] x in search bar to clear content on click
+- [x] style the buttons
+- [x] format the output of the query
+- [ ] responsive design!
+- [ ] some issues with content width being more uniform
+- [ ] footer
+- [ ] add search info text between search bar and results like google has
+
+### Other
+- [x] Create review branch
+- [x] README file
+- [x] Boiler plate of the project 
+- [x] Create the static data to develop the client side without consuming API requests
+- [x] Hook the event handlers to send query to the server instead of static data
+- [x] use function from server or add the logic to return only 10 results
+=======
 [] search area that hides
     [] add logo
     [] x in search bar to clear content on click
@@ -75,3 +113,4 @@
 [x] Create the static data to develop the client side without consuming API requests
 [x] Hook the event handlers to send query to the server instead of static data
 [x] use function from server or add the logic to return only 10 results
+
