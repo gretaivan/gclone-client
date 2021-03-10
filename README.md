@@ -45,11 +45,11 @@
 
 ## TODO
 ### Functionality 
-[x] upon search button pressing send request to the server with search keyword
-[x] feeling lucky button: 
-    [x] pass the keyword 
-    [x] then generate random index for the search result
-    [x] select and redirect to the result with randomIndex
+- [x] upon search button pressing send request to the server with search keyword
+- [x] feeling lucky button: 
+    - [x] pass the keyword 
+    - [x] then generate random index for the search result
+    - [x] select and redirect to the result with randomIndex
 
 ### Design 
 - [x] search area that hides
