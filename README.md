@@ -16,9 +16,6 @@
 
 ### index.js
 - [x] refactored to reduce uneeded code by creating the target elements and listeners for them
-
-
-### listeners.js
 - [x] added the event listener and handler for button search
 - [x] added the event listener and handler for feeling lucky
 - [x] fixed the query formating that send request to the server

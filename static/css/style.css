@@ -1,15 +1,40 @@
-@font-face{
+/* @font-face{
   font-family: customFont;
   src: url(\fonts\ProductSansBoldItalic.ttf);
-}
+} */
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600&display=swap');
+
 
 h1{
   /* font-family: customFont; */
-  font-size: 40px;
+  /* font-family: 'Shippori Mincho B1', serif; */
+  font-family: 'Open Sans', sans-serif;
+  font-size: 65px;
   font-family: 'Comic Sans';
+  letter-spacing: 4px;
+  font-weight: 600;
+  display: flex;
+  font-stretch: expanded;
+}
+ 
+h1:first-of-type, h1 div:nth-of-type(3), h1 div:nth-of-type(5){
+  color: #4387F6;
+}
+h1 div:nth-of-type(1){
+  color:#EB4336;
+}
+h1 div:nth-of-type(2){
+  color:#FABD03;
+}
+h1 div:nth-of-type(4){
+  color:#34A853;
+}
 
+h1 div:nth-of-type(5){
+  transform: rotate(-5deg);
 }
   
+
 
 * {
     box-sizing: border-box;
@@ -197,6 +222,10 @@ h3{
     -webkit-tap-highlight-color: rgba(0,0,0,.10);
     margin-block-end: 2px;
     margin-block-start: 2px;
+}
+
+h3:hover{
+  text-decoration: underline;
 }
 
 p{
