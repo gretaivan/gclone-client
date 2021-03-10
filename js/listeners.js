@@ -1,24 +1,37 @@
 const apiFuncs = require('./api');
 const result = require('./data');
-
+const handlerFuncs = require('./handlers')
 // IMPORTANT: 
 // uncomment to use server api
+const searchbar = document.getElementById('search-bar')
+
+function searchBarHelper() {
+    searchbar.addEventListener("input", () => handlerFuncs.renderInputClear(searchbar.value))
+}
+
+const clearBtn = document.getElementById('clear-btn')
+clearBtn.addEventListener("click", (e) => {
+    e.preventDefault()
+    searchbar.value = ''
+    clearBtn.style.display = "none"
+})
+
+
 function searchButton() {
     document.getElementById('search-button').addEventListener("click", async (e) => {
-        const query = document.getElementById('search-bar').value
+        const query = searchbar.value
         e.preventDefault()
        const data = await apiFuncs.getData(`http://localhost:3000/search/${query}`)     
    
         // handle responses
-        console.log(data)
         appendList(data.body)
+        handlerFuncs.layoutChange()
     })
 } 
 
-
 function luckyButton() {
     document.getElementById('lucky-button').addEventListener("click", async (e) => {
-        const query = document.getElementById('search-bar').value
+        const query = searchbar.value
         e.preventDefault()
         // IMPORTANT:
         // Uncomment to use api
@@ -91,7 +104,8 @@ function generateListItem(result){
 
 module.exports = {
     luckyButton,
-    searchButton
+    searchButton,
+    searchBarHelper
 }
 
 //searchButton,  submitKeyword,
