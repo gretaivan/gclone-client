@@ -19,25 +19,33 @@ clearBtn.addEventListener("click", (e) => {
 
 function searchButton() {
     document.getElementById('search-button').addEventListener("click", async (e) => {
-        const query = searchbar.value
         e.preventDefault()
-       const data = await apiFuncs.getData(`http://localhost:3000/search/${query}`)     
-   
-        // handle responses
-        appendList(data.body)
-        handlerFuncs.layoutChange()
+        const query = searchbar.value
+        try {
+            if (query.length < 1) throw new Error('please enter a search query')
+            const data = await apiFuncs.getData(`http://localhost:3000/search/${query}`)       
+            appendList(data.body)
+            handlerFuncs.layoutChange()
+        } catch(err) {
+            alert(err)
+            throw err
+        }
     })
 } 
 
 function luckyButton() {
     document.getElementById('lucky-button').addEventListener("click", async (e) => {
-        const query = searchbar.value
         e.preventDefault()
-        // IMPORTANT:
-        // Uncomment to use api
-        const data = await apiFuncs.getData(`http://localhost:3000/search/lucky/${query}`)
-        console.log(data.body.url)
-        window.location.href = data.body.url
+        const query = searchbar.value
+        try {
+            if (query.length < 1) throw new Error('please enter a search query')
+            const data = await apiFuncs.getData(`http://localhost:3000/search/lucky/${query}`)
+            console.log(data.body.url)
+            window.location.href = data.body.url
+        } catch(err) {
+            alert(err)
+            throw err
+        }
     })
 }
 

@@ -267,8 +267,6 @@ module.exports = {
 },{}],4:[function(require,module,exports){
 // INITIAL
 // const listeners = require('./listeners')
-<<<<<<< HEAD
-=======
 
 const listeners = require('./listeners');
 
@@ -277,7 +275,6 @@ const listeners = require('./listeners');
 
 // searchBtn.addEventListener('click', getResultList);
 // luckyBtn.addEventListener('click', getRandomResult);
->>>>>>> 1e58ff72b84e7cb241f62cdef4f7d653a206a060
 
 // quick functions to target search bar -> move these to listeners?
 window.addEventListener("load", () => {
@@ -288,28 +285,11 @@ document.getElementsByClassName('child')[0].addEventListener("click", () => {
     document.getElementById('search-bar').focus()
 })
 
-<<<<<<< HEAD
-// listeners.searchButton()
-// listeners.luckyButton()
-
-
-
-
-const { getResultList, getRandomResult } = require('./listeners');
-
-const searchBtn = document.getElementById('search-button');
-const luckyBtn = document.getElementById('lucky-button');
-
-searchBtn.addEventListener('click', getResultList);
-luckyBtn.addEventListener('click', getRandomResult);
-},{"./listeners":4}],4:[function(require,module,exports){
-=======
 listeners.searchBarHelper()
 listeners.searchButton()
 listeners.luckyButton()
 
 },{"./listeners":5}],5:[function(require,module,exports){
->>>>>>> 1e58ff72b84e7cb241f62cdef4f7d653a206a060
 const apiFuncs = require('./api');
 const result = require('./data');
 const handlerFuncs = require('./handlers')
@@ -331,25 +311,33 @@ clearBtn.addEventListener("click", (e) => {
 
 function searchButton() {
     document.getElementById('search-button').addEventListener("click", async (e) => {
-        const query = searchbar.value
         e.preventDefault()
-       const data = await apiFuncs.getData(`http://localhost:3000/search/${query}`)     
-   
-        // handle responses
-        appendList(data.body)
-        handlerFuncs.layoutChange()
+        const query = searchbar.value
+        try {
+            if (query.length < 1) throw new Error('please enter a search query')
+            const data = await apiFuncs.getData(`http://localhost:3000/search/${query}`)       
+            appendList(data.body)
+            handlerFuncs.layoutChange()
+        } catch(err) {
+            alert(err)
+            throw err
+        }
     })
 } 
 
 function luckyButton() {
     document.getElementById('lucky-button').addEventListener("click", async (e) => {
-        const query = searchbar.value
         e.preventDefault()
-        // IMPORTANT:
-        // Uncomment to use api
-        const data = await apiFuncs.getData(`http://localhost:3000/search/lucky/${query}`)
-        console.log(data.body.url)
-        window.location.href = data.body.url
+        const query = searchbar.value
+        try {
+            if (query.length < 1) throw new Error('please enter a search query')
+            const data = await apiFuncs.getData(`http://localhost:3000/search/lucky/${query}`)
+            console.log(data.body.url)
+            window.location.href = data.body.url
+        } catch(err) {
+            alert(err)
+            throw err
+        }
     })
 }
 
@@ -383,6 +371,7 @@ function appendList(data){
 }
 
 function generateListItem(result){
+    
     const resSect = document.querySelector('#resultSection');
     const resultBox = document.createElement('div');
     console.log(resSect.contains(resultBox));
