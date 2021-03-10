@@ -16,28 +16,6 @@
 
 ### index.js
 - [x] refactored to reduce uneeded code by creating the target elements and listeners for them
-
-
-### listeners.js
-<<<<<<< HEAD
-[x] added the event listener and handler for button search
-[x] added the event listener and handler for feeling lucky
-[x] fixed the query formating that send request to the server
-[x] refactored event handlers to include smaller reusable functions
-[x] function to get the result data
-[x] function to create the result list
-[x] function to create the formated one result sample and append it to the view
-[x] cleanup of the file
-[x] amending the result population function so it deletes the old search
-
-### style.css
-[x] styled the initial page
-[x] styles the 
-[x] format the output of the query
-[x] creates the custom made fonts
-[] logo styling
-
-=======
 - [x] added the event listener and handler for button search
 - [x] added the event listener and handler for feeling lucky
 - [x] fixed the query formating that send request to the server
@@ -46,14 +24,12 @@
 - [x] function to create the result list
 - [x] function to create the formated one result sample and append it to the view
 - [x] cleanup of the file
->>>>>>> 8bed222937c27e63bdff4b383cd61d4cd7aa5422
 
 ### data.js
 - [x] static file 
 
 
 ## Bugs
-<<<<<<< HEAD
 - [x] client sends incorrectly formatted keyword as aquery to the server
 - [ ] content from old search needs to be destoryed on new search
 - [ ] long load times - confusing - should tell user that query is running !
@@ -62,22 +38,19 @@
 ### layout bugs
 - [ ] flex layout causes content to shift off left of screen on window resize
 - [ ] flex flow causes unpleasant break up of content when search alligned to top of screen
-=======
-
 
 
 ## TODO
 ### Functionality 
-[x] upon search button pressing send request to the server with search keyword
-[x] feeling lucky button: 
-    [x] pass the keyword 
-    [x] then generate random index for the search result
-    [x] select and redirect to the result with randomIndex
+- [x] upon search button pressing send request to the server with search keyword
+- [x] feeling lucky button: 
+    - [x] pass the keyword 
+    - [x] then generate random index for the search result
+    - [x] select and redirect to the result with randomIndex
 
 ### Design 
-<<<<<<< HEAD
 - [x] search area that hides
-    - [] add logo
+    - [ ] add logo
     - [x] x in search bar to clear content on click
 - [x] style the buttons
 - [x] format the output of the query
@@ -93,24 +66,12 @@
 - [x] Create the static data to develop the client side without consuming API requests
 - [x] Hook the event handlers to send query to the server instead of static data
 - [x] use function from server or add the logic to return only 10 results
-=======
-[] search area that hides
-    [] add logo
-    [] x in search bar to clear content on click
-[] style the buttons
-[] responsive design!
-[] some issues with content width being more uniform
-[] footer
-[] target 
-[] underline h3 header on hoevr
-[] emphasise the keyword in paragraph
-[] when you hover over input add text cursor
 
 ### Other
-[x] Create review branch
-[x] README file
-[x] Boiler plate of the project 
-[x] Create the static data to develop the client side without consuming API requests
-[x] Hook the event handlers to send query to the server instead of static data
-[x] use function from server or add the logic to return only 10 results
+- [x] Create review branch
+- [x] README file
+- [x] Boiler plate of the project 
+- [x] Create the static data to develop the client side without consuming API requests
+- [x] Hook the event handlers to send query to the server instead of static data
+- [x] use function from server or add the logic to return only 10 results
 
