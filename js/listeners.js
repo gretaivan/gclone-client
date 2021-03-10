@@ -13,6 +13,7 @@ const clearBtn = document.getElementById('clear-btn')
 clearBtn.addEventListener("click", (e) => {
     e.preventDefault()
     searchbar.value = ''
+    clearBtn.style.display = "none"
 })
 
 
