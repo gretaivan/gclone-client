@@ -29,6 +29,11 @@ h1{
     flex-direction: column;
     align-items: center;
   }
+
+  .form-top {
+    flex-direction: row;
+    flex-flow: row wrap;
+  }
   
   .parent, .child {
     border-radius: 50px;
@@ -44,6 +49,7 @@ h1{
   .child {
     border: 1px solid #dfe1e5;
     width: 100%;
+    position: relative;
   }
   
   .child:hover {
@@ -101,15 +107,50 @@ h1{
 }
 
 input[type="submit"]:hover, input[type="submit"]:focus {
+    outline: none;
     box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
     background-color: #f8f9fa;
     border: 1px solid #dadce0;
     color: #202124;
 }
 
+input[type="submit"]:active {
+    outline: none;
+    border-color: #1a73e8
+}
+
 .input-button-cont {
     display: flex;
     flex-flow: row nowrap;
+}
+
+#clear-btn {
+    position: absolute;
+    right: 22px;
+    height: 44px;
+    top: 0;
+    display: none;
+    background: none;
+    border: none;
+    color: #80868b;
+    font-size: 20px;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#clear-btn::after {
+    content: '';
+    position: absolute;
+    border-right: solid 1px #abb5bd;
+    height: 22px;
+    top: 11px;
+    margin-left: 33px;
+}
+
+#clear-btn:focus, #clear-btn:active {
+    outline:none
 }
 
 body{
