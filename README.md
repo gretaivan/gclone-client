@@ -33,7 +33,6 @@
 
 
 ## Bugs
-<<<<<<< HEAD
 - [x] client sends incorrectly formatted keyword as aquery to the server
 - [ ] content from old search needs to be destoryed on new search
 - [ ] long load times - confusing - should tell user that query is running !
@@ -54,7 +53,7 @@
 
 ### Design 
 - [x] search area that hides
-    - [] add logo
+    - [ ] add logo
     - [x] x in search bar to clear content on click
 - [x] style the buttons
 - [x] format the output of the query
@@ -72,10 +71,10 @@
 - [x] use function from server or add the logic to return only 10 results
 
 ### Other
-[x] Create review branch
-[x] README file
-[x] Boiler plate of the project 
-[x] Create the static data to develop the client side without consuming API requests
-[x] Hook the event handlers to send query to the server instead of static data
-[x] use function from server or add the logic to return only 10 results
+- [x] Create review branch
+- [x] README file
+- [x] Boiler plate of the project 
+- [x] Create the static data to develop the client side without consuming API requests
+- [x] Hook the event handlers to send query to the server instead of static data
+- [x] use function from server or add the logic to return only 10 results
 
