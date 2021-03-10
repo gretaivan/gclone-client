@@ -236,15 +236,7 @@ const data = [
 exports.modules = data; 
 },{}],3:[function(require,module,exports){
 // INITIAL
-const listeners = require('./listeners')
-
-// const {submitKeyword, getResultList, getRandomResult} = require('./listeners');
-
-// const searchBtn = document.getElementById('search-button');
-// const luckyBtn = document.getElementById('lucky-button');
-
-// searchBtn.addEventListener('click', listeners.searchButton)
-// luckyBtn.addEventListener('click', listeners.luckyButton)
+// const listeners = require('./listeners')
 
 // quick functions to target search bar -> move these to listeners?
 window.addEventListener("load", () => {
@@ -255,8 +247,19 @@ document.getElementsByClassName('child')[0].addEventListener("click", () => {
     document.getElementById('search-bar').focus()
 })
 
-listeners.searchButton()
-listeners.luckyButton()
+// listeners.searchButton()
+// listeners.luckyButton()
+
+
+
+
+const { getResultList, getRandomResult } = require('./listeners');
+
+const searchBtn = document.getElementById('search-button');
+const luckyBtn = document.getElementById('lucky-button');
+
+searchBtn.addEventListener('click', getResultList);
+luckyBtn.addEventListener('click', getRandomResult);
 },{"./listeners":4}],4:[function(require,module,exports){
 const apiFuncs = require('./api');
 const result = require('./data');
@@ -267,7 +270,8 @@ function searchButton() {
     document.getElementById('search-button').addEventListener("click", async (e) => {
         const query = document.getElementById('search-bar').value
         e.preventDefault()
-        const data = await apiFuncs.getData(`http://localhost:3000/search/${query}`)       
+       const data = await apiFuncs.getData(`http://localhost:3000/search/${query}`)     
+   
         // handle responses
         console.log(data)
         appendList(data.body)
@@ -319,6 +323,15 @@ function appendList(data){
 function generateListItem(result){
     const resSect = document.querySelector('#resultSection');
     const resultBox = document.createElement('div');
+    console.log(resSect.contains(resultBox));
+
+    if(resSect.contains(resultBox)){
+        console.log("it is not a first search");
+    } else{
+        console.log("first search")
+    }
+    
+    
     resultBox.className = "result-box";
     //hyperlink
     let link = document.createElement('a');
@@ -334,7 +347,7 @@ function generateListItem(result){
     // let description = `<p>${result.snippet}</p>`
     resultBox.append(link);
     resultBox.append(description);
-    resSect.appendChild(resultBox);
+    resSect.append(resultBox);
 }
 
 

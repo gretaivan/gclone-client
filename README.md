@@ -27,12 +27,24 @@
 [x] function to create the result list
 [x] function to create the formated one result sample and append it to the view
 [x] cleanup of the file
+[] amending the result population function
+
+### style.css
+[x] styled the initial page
+[x] styles the 
+[x] format the output of the query
+[x] creates the custom made fonts
+[] logo styling
+
 
 ### data.js
 [x] static file 
 
+
 ## Bugs
 [x] client sends incorrectly formatted keyword as aquery to the server
+[x] does not identify listeners
+[x] does not remove previous search results so new search results are not displayed
 
 
 ## TODO
@@ -48,15 +60,17 @@
     [] add logo
     [] x in search bar to clear content on click
 [] style the buttons
-[x] format the output of the query
 [] responsive design!
 [] some issues with content width being more uniform
 [] footer
+[] target 
+[] underline h3 header on hoevr
+[] emphasise the keyword in paragraph
 
 ### Other
 [x] Create review branch
 [x] README file
 [x] Boiler plate of the project 
 [x] Create the static data to develop the client side without consuming API requests
-[ ] Hook the event handlers to send query to the server instead of static data
-[] use function from server or add the logic to return only 10 results
+[x] Hook the event handlers to send query to the server instead of static data
+[x] use function from server or add the logic to return only 10 results

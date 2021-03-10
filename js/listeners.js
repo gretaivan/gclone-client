@@ -7,7 +7,8 @@ function searchButton() {
     document.getElementById('search-button').addEventListener("click", async (e) => {
         const query = document.getElementById('search-bar').value
         e.preventDefault()
-        const data = await apiFuncs.getData(`http://localhost:3000/search/${query}`)       
+       const data = await apiFuncs.getData(`http://localhost:3000/search/${query}`)     
+   
         // handle responses
         console.log(data)
         appendList(data.body)
@@ -57,8 +58,18 @@ function appendList(data){
 }
 
 function generateListItem(result){
+    
     const resSect = document.querySelector('#resultSection');
     const resultBox = document.createElement('div');
+    console.log(resSect.contains(resultBox));
+
+    if(resSect.contains(resultBox)){
+        console.log("it is not a first search");
+    } else{
+        console.log("first search")
+    }
+    
+    
     resultBox.className = "result-box";
     //hyperlink
     let link = document.createElement('a');
@@ -74,7 +85,7 @@ function generateListItem(result){
     // let description = `<p>${result.snippet}</p>`
     resultBox.append(link);
     resultBox.append(description);
-    resSect.appendChild(resultBox);
+    resSect.append(resultBox);
 }
 
 
