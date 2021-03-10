@@ -123,8 +123,8 @@ form{
 }
 
 #resultSection{ 
-    padding: 5px 10%;
-    width: 45vw;
+    padding: 5px 0 5px 10%;
+    width: 55vw;
 }
 
 .result-box{

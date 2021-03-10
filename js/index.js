@@ -1,5 +1,5 @@
 // INITIAL
-const listeners = require('./listeners')
+// const listeners = require('./listeners')
 
 const { getResultList, getRandomResult } = require('./listeners');
 
