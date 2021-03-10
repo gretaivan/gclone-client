@@ -7,9 +7,9 @@ h1{
   /* font-family: customFont; */
   font-size: 40px;
   font-family: 'Comic Sans';
-
 }
-  
+ 
+h1::content
 
 * {
     box-sizing: border-box;
@@ -197,6 +197,10 @@ h3{
     -webkit-tap-highlight-color: rgba(0,0,0,.10);
     margin-block-end: 2px;
     margin-block-start: 2px;
+}
+
+h3:hover{
+  text-decoration: underline;
 }
 
 p{
