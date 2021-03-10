@@ -48,6 +48,7 @@
 [] style the buttons
 [x] format the output of the query
 [] responsive design!
+[] create google effect after the search query submitted 
 
 ### Other
 [x] Create review branch
@@ -55,3 +56,4 @@
 [x] Boiler plate of the project 
 [x] Create the static data to develop the client side without consuming API requests
 [ ] Hook the event handlers to send query to the server instead of static data
+[] use function from server or add the logic to return only 10 results
