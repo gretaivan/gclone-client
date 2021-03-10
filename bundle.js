@@ -100,7 +100,16 @@ function searchButton() {
         const query = searchbar.value
         try {
             if (query.length < 1) throw new Error('please enter a search query')
-            const data = await apiFuncs.getData(`http://localhost:3000/search/${query}`)       
+            const data = await apiFuncs.getData(`http://localhost:3000/search/${query}`)   
+            
+            //destroys old content
+            const resSect = document.querySelector('#resultSection');
+            resSect.innerHTML = "";
+            // let children = resSect.childNodes;
+            // for(let i = 0; i < children.length; i++){
+            //     resSect.removeChild(children[0]);
+            // }
+
             appendList(data.body)
             handlerFuncs.layoutChange()
         } catch(err) {
