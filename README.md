@@ -44,11 +44,14 @@
     [] select and redirect to the result with randomIndex
 
 ### Design 
-[] add logo
+[] search area that hides
+    [] add logo
+    [] x in search bar to clear content on click
 [] style the buttons
 [x] format the output of the query
 [] responsive design!
-[] create google effect after the search query submitted 
+[] some issues with content width being more uniform
+[] footer
 
 ### Other
 [x] Create review branch
