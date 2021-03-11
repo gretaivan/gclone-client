@@ -15,9 +15,9 @@ const { geolocate } = require('./geolocation');
 
 // window.addEventListener("load", geolocate);
 
+listeners.initSearchFocus()
 listeners.searchBarHelper()
 listeners.clearBtnHelper()
-listeners.initSearchFocus()
 listeners.allocateSearchFocus()
 listeners.searchButton()
 listeners.luckyButton()

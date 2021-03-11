@@ -23,7 +23,12 @@ function renderInputClear(data) {
     }
 }
 
+function targetSearch(){
+    document.getElementById('search-bar').focus()
+}
+
 module.exports = {
     layoutChange,
-    renderInputClear
+    renderInputClear,
+    targetSearch
 }

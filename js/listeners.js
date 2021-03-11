@@ -18,14 +18,14 @@ function clearBtnHelper() {
 }
 
 function initSearchFocus(){
-    document.addEventListener("load", () => {
-        document.getElementById('search-bar').focus()
-    })
+    window.addEventListener("DOMContentLoaded", () => {
+        handlerFuncs.targetSearch()
+    })    
 }
 
 function allocateSearchFocus(){
     document.getElementsByClassName('child')[0].addEventListener("click", () => {
-        document.getElementById('search-bar').focus()
+        handlerFuncs.targetSearch()
     })
 }
 
@@ -42,10 +42,6 @@ function searchButton() {
             //destroys old content
             const resSect = document.querySelector('#resultSection');
             resSect.innerHTML = "";
-            // let children = resSect.childNodes;
-            // for(let i = 0; i < children.length; i++){
-            //     resSect.removeChild(children[0]);
-            // }
 
             appendList(data.body)
             handlerFuncs.layoutChange()

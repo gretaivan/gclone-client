@@ -83,9 +83,14 @@ function renderInputClear(data) {
     }
 }
 
+function targetSearch(){
+    document.getElementById('search-bar').focus()
+}
+
 module.exports = {
     layoutChange,
-    renderInputClear
+    renderInputClear,
+    targetSearch
 }
 },{}],4:[function(require,module,exports){
 // INITIAL
@@ -105,9 +110,9 @@ const { geolocate } = require('./geolocation');
 
 // window.addEventListener("load", geolocate);
 
+listeners.initSearchFocus()
 listeners.searchBarHelper()
 listeners.clearBtnHelper()
-listeners.initSearchFocus()
 listeners.allocateSearchFocus()
 listeners.searchButton()
 listeners.luckyButton()
@@ -136,14 +141,14 @@ function clearBtnHelper() {
 }
 
 function initSearchFocus(){
-    document.addEventListener("load", () => {
-        document.getElementById('search-bar').focus()
-    })
+    window.addEventListener("DOMContentLoaded", () => {
+        handlerFuncs.targetSearch()
+    })    
 }
 
 function allocateSearchFocus(){
     document.getElementsByClassName('child')[0].addEventListener("click", () => {
-        document.getElementById('search-bar').focus()
+        handlerFuncs.targetSearch()
     })
 }
 
@@ -160,10 +165,6 @@ function searchButton() {
             //destroys old content
             const resSect = document.querySelector('#resultSection');
             resSect.innerHTML = "";
-            // let children = resSect.childNodes;
-            // for(let i = 0; i < children.length; i++){
-            //     resSect.removeChild(children[0]);
-            // }
 
             appendList(data.body)
             handlerFuncs.layoutChange()

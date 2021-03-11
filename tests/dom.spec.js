@@ -58,5 +58,10 @@ describe ('dom functions', () => {
             handlers.renderInputClear('text')
             expect(clearBtn.style.display).toBe('flex')
         })
+        it('should target search bar if function called', () => {
+            handlers.targetSearch()
+            expect(document.activeElement).toBe(searchBar)
+        })
+
     })
 })
