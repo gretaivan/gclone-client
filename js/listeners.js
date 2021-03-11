@@ -17,6 +17,15 @@ function clearBtnHelper() {
     })
 }
 
+document.addEventListener("load", () => {
+    document.getElementById('search-bar').focus()
+})
+
+document.getElementsByClassName('child')[0].addEventListener("click", () => {
+    document.getElementById('search-bar').focus()
+})
+
+
 
 function searchButton() {
     document.getElementById('search-button').addEventListener("click", async (e) => {
@@ -59,33 +68,8 @@ function luckyButton() {
     })
 }
 
-// function getResultList(e){
-//     e.preventDefault(); 
-//     keyword = document.getElementById('search-bar').value;
-//     console.log("Return of the result list for keyword: " + keyword);
-//     getData(keyword)  
-// }
-
-// function getRandomResult(e){
-//     e.preventDefault(); 
-//     keyword = document.getElementById('search-bar').value;
-//     console.log("Redirection the result for keyword: " + keyword);
-//     getData(keyword);
-// }
-
-// async function getData(keyword){
-//     try{
-//         const data = await result;
-//         const data = await apiFuncs.getData(`http://localhost:3000/search/${keyword}`)
-//         appendList(data);
-//     } catch(err){
-//         console.log(err);
-//     } 
-// }
-
 
 function appendList(data){
-
     data.forEach(result => generateListItem(result));
 }
 
