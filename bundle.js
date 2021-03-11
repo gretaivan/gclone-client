@@ -32,7 +32,7 @@ async function onGeolocateSuccess(coordinates) {
    const { latitude, longitude } = coordinates.coords;
    console.log('Found coordinates: ', latitude, longitude);
    const data = await apiFuncs.getData(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=10&addressdetails=10`)
-   console.log(data.address.county, data.address.state)
+   console.log("Country: " + data.address.county + " State: " + data.address.state)
    appendLocation(data.address.county, data.address.state); 
 }
 
@@ -49,14 +49,26 @@ function onGeolocateError(error) {
 }
 
 function appendLocation(county, state){
+   let locationString = "";
+   if(county == undefined && state == undefined){ 
+      locationString = "Location share is not autorised"
+   } else {
+      if(county != undefined){
+         locationString += county; 
+      } 
+      if (state != undefined){
+         locationString += `, ${state}`;
+      }
+   }
+
     const footer = document.getElementById('location');
     //let locationText = document.createElement('p');
-    footer.innerHTML = `<p>${county}, ${state}</p>`
+    footer.innerHTML = `<p>${locationString}</p>`
 }
 
 geolocate();
 
-exports.modules = { geolocate  };
+exports.modules = { geolocate };
 },{"./api":1}],3:[function(require,module,exports){
 function layoutChange() {
     const searchArea = document.getElementsByClassName('search-container')[0]
