@@ -135,13 +135,17 @@ function clearBtnHelper() {
     })
 }
 
-document.addEventListener("load", () => {
-    document.getElementById('search-bar').focus()
-})
+function initSearchFocus(){
+    document.addEventListener("load", () => {
+        document.getElementById('search-bar').focus()
+    })
+}
 
-document.getElementsByClassName('child')[0].addEventListener("click", () => {
-    document.getElementById('search-bar').focus()
-})
+function allocateSearchFocus(){
+    document.getElementsByClassName('child')[0].addEventListener("click", () => {
+        document.getElementById('search-bar').focus()
+    })
+}
 
 
 
@@ -229,7 +233,9 @@ module.exports = {
     searchButton,
     searchBarHelper,
     generateListItem,
-    appendList
+    appendList,
+    initSearchFocus,
+    allocateSearchFocus
 }
 
 //searchButton,  submitKeyword,
