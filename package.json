@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "coverage": "jest --coverage",
     "dev": "concurrently \"watchify ./js/index.js -o bundle.js\" \"py -m http.server\""
   },
   "repository": {

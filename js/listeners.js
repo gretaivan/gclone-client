@@ -8,12 +8,27 @@ function searchBarHelper() {
     searchbar.addEventListener("input", () => handlerFuncs.renderInputClear(searchbar.value))
 }
 
-const clearBtn = document.getElementById('clear-btn')
-clearBtn.addEventListener("click", (e) => {
-    e.preventDefault()
-    searchbar.value = ''
-    clearBtn.style.display = "none"
-})
+function clearBtnHelper() {
+    const clearBtn = document.getElementById('clear-btn')
+    clearBtn.addEventListener("click", (e) => {
+        e.preventDefault()
+        searchbar.value = ''
+        clearBtn.style.display = "none"
+    })
+}
+
+function initSearchFocus(){
+    window.addEventListener("DOMContentLoaded", () => {
+        handlerFuncs.targetSearch()
+    })    
+}
+
+function allocateSearchFocus(){
+    document.getElementsByClassName('child')[0].addEventListener("click", () => {
+        handlerFuncs.targetSearch()
+    })
+}
+
 
 
 function searchButton() {
@@ -27,10 +42,6 @@ function searchButton() {
             //destroys old content
             const resSect = document.querySelector('#resultSection');
             resSect.innerHTML = "";
-            // let children = resSect.childNodes;
-            // for(let i = 0; i < children.length; i++){
-            //     resSect.removeChild(children[0]);
-            // }
 
             appendList(data.body)
             handlerFuncs.layoutChange()
@@ -57,33 +68,8 @@ function luckyButton() {
     })
 }
 
-// function getResultList(e){
-//     e.preventDefault(); 
-//     keyword = document.getElementById('search-bar').value;
-//     console.log("Return of the result list for keyword: " + keyword);
-//     getData(keyword)  
-// }
-
-// function getRandomResult(e){
-//     e.preventDefault(); 
-//     keyword = document.getElementById('search-bar').value;
-//     console.log("Redirection the result for keyword: " + keyword);
-//     getData(keyword);
-// }
-
-// async function getData(keyword){
-//     try{
-//         const data = await result;
-//         const data = await apiFuncs.getData(`http://localhost:3000/search/${keyword}`)
-//         appendList(data);
-//     } catch(err){
-//         console.log(err);
-//     } 
-// }
-
 
 function appendList(data){
-
     data.forEach(result => generateListItem(result));
 }
 
@@ -120,9 +106,14 @@ function generateListItem(result){
 
 
 module.exports = {
+    clearBtnHelper,
     luckyButton,
     searchButton,
-    searchBarHelper
+    searchBarHelper,
+    generateListItem,
+    appendList,
+    initSearchFocus,
+    allocateSearchFocus
 }
 
 //searchButton,  submitKeyword,

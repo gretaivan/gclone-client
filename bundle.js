@@ -32,7 +32,7 @@ async function onGeolocateSuccess(coordinates) {
    const { latitude, longitude } = coordinates.coords;
    console.log('Found coordinates: ', latitude, longitude);
    const data = await apiFuncs.getData(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=10&addressdetails=10`)
-   console.log(data.address.county, data.address.state)
+   console.log("Country: " + data.address.county + " State: " + data.address.state)
    appendLocation(data.address.county, data.address.state); 
 }
 
@@ -49,14 +49,26 @@ function onGeolocateError(error) {
 }
 
 function appendLocation(county, state){
+   let locationString = "";
+   if(county == undefined && state == undefined){ 
+      locationString = "Location share is not autorised"
+   } else {
+      if(county != undefined){
+         locationString += county; 
+      } 
+      if (state != undefined){
+         locationString += `, ${state}`;
+      }
+   }
+
     const footer = document.getElementById('location');
     //let locationText = document.createElement('p');
-    footer.innerHTML = `<p>${county}, ${state}</p>`
+    footer.innerHTML = `<p>${locationString}</p>`
 }
 
 geolocate();
 
-exports.modules = { geolocate  };
+exports.modules = { geolocate };
 },{"./api":1}],3:[function(require,module,exports){
 function layoutChange() {
     const searchArea = document.getElementsByClassName('search-container')[0]
@@ -73,8 +85,8 @@ function layoutChange() {
     form.className = 'form-top'
 }
 
-const clearBtn = document.getElementById('clear-btn')
 function renderInputClear(data) {
+    const clearBtn = document.getElementById('clear-btn')
     if (data.length > 0) {
         clearBtn.style.display = "flex"
     }
@@ -83,9 +95,14 @@ function renderInputClear(data) {
     }
 }
 
+function targetSearch(){
+    document.getElementById('search-bar').focus()
+}
+
 module.exports = {
     layoutChange,
-    renderInputClear
+    renderInputClear,
+    targetSearch
 }
 },{}],4:[function(require,module,exports){
 // INITIAL
@@ -101,17 +118,14 @@ const { geolocate } = require('./geolocation');
 // luckyBtn.addEventListener('click', getRandomResult);
 
 // quick functions to target search bar -> move these to listeners?
-window.addEventListener("load", () => {
-    document.getElementById('search-bar').focus()
-})
+
 
 // window.addEventListener("load", geolocate);
 
-document.getElementsByClassName('child')[0].addEventListener("click", () => {
-    document.getElementById('search-bar').focus()
-})
-
+listeners.initSearchFocus()
 listeners.searchBarHelper()
+listeners.clearBtnHelper()
+listeners.allocateSearchFocus()
 listeners.searchButton()
 listeners.luckyButton()
 
@@ -129,12 +143,27 @@ function searchBarHelper() {
     searchbar.addEventListener("input", () => handlerFuncs.renderInputClear(searchbar.value))
 }
 
-const clearBtn = document.getElementById('clear-btn')
-clearBtn.addEventListener("click", (e) => {
-    e.preventDefault()
-    searchbar.value = ''
-    clearBtn.style.display = "none"
-})
+function clearBtnHelper() {
+    const clearBtn = document.getElementById('clear-btn')
+    clearBtn.addEventListener("click", (e) => {
+        e.preventDefault()
+        searchbar.value = ''
+        clearBtn.style.display = "none"
+    })
+}
+
+function initSearchFocus(){
+    window.addEventListener("DOMContentLoaded", () => {
+        handlerFuncs.targetSearch()
+    })    
+}
+
+function allocateSearchFocus(){
+    document.getElementsByClassName('child')[0].addEventListener("click", () => {
+        handlerFuncs.targetSearch()
+    })
+}
+
 
 
 function searchButton() {
@@ -148,10 +177,6 @@ function searchButton() {
             //destroys old content
             const resSect = document.querySelector('#resultSection');
             resSect.innerHTML = "";
-            // let children = resSect.childNodes;
-            // for(let i = 0; i < children.length; i++){
-            //     resSect.removeChild(children[0]);
-            // }
 
             appendList(data.body)
             handlerFuncs.layoutChange()
@@ -178,33 +203,8 @@ function luckyButton() {
     })
 }
 
-// function getResultList(e){
-//     e.preventDefault(); 
-//     keyword = document.getElementById('search-bar').value;
-//     console.log("Return of the result list for keyword: " + keyword);
-//     getData(keyword)  
-// }
-
-// function getRandomResult(e){
-//     e.preventDefault(); 
-//     keyword = document.getElementById('search-bar').value;
-//     console.log("Redirection the result for keyword: " + keyword);
-//     getData(keyword);
-// }
-
-// async function getData(keyword){
-//     try{
-//         const data = await result;
-//         const data = await apiFuncs.getData(`http://localhost:3000/search/${keyword}`)
-//         appendList(data);
-//     } catch(err){
-//         console.log(err);
-//     } 
-// }
-
 
 function appendList(data){
-
     data.forEach(result => generateListItem(result));
 }
 
@@ -241,9 +241,14 @@ function generateListItem(result){
 
 
 module.exports = {
+    clearBtnHelper,
     luckyButton,
     searchButton,
-    searchBarHelper
+    searchBarHelper,
+    generateListItem,
+    appendList,
+    initSearchFocus,
+    allocateSearchFocus
 }
 
 //searchButton,  submitKeyword,

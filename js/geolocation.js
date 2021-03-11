@@ -29,11 +29,11 @@ function onGeolocateError(error) {
 
 function appendLocation(county, state){
    let locationString = "";
-   if(country == undefined && state == undefined){ 
+   if(county == undefined && state == undefined){ 
       locationString = "Location share is not autorised"
    } else {
-      if(country != undefined){
-         locationString += country; 
+      if(county != undefined){
+         locationString += county; 
       } 
       if (state != undefined){
          locationString += `, ${state}`;

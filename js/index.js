@@ -11,17 +11,14 @@ const { geolocate } = require('./geolocation');
 // luckyBtn.addEventListener('click', getRandomResult);
 
 // quick functions to target search bar -> move these to listeners?
-window.addEventListener("load", () => {
-    document.getElementById('search-bar').focus()
-})
+
 
 // window.addEventListener("load", geolocate);
 
-document.getElementsByClassName('child')[0].addEventListener("click", () => {
-    document.getElementById('search-bar').focus()
-})
-
+listeners.initSearchFocus()
 listeners.searchBarHelper()
+listeners.clearBtnHelper()
+listeners.allocateSearchFocus()
 listeners.searchButton()
 listeners.luckyButton()
 

@@ -13,8 +13,8 @@ function layoutChange() {
     form.className = 'form-top'
 }
 
-const clearBtn = document.getElementById('clear-btn')
 function renderInputClear(data) {
+    const clearBtn = document.getElementById('clear-btn')
     if (data.length > 0) {
         clearBtn.style.display = "flex"
     }
@@ -23,7 +23,12 @@ function renderInputClear(data) {
     }
 }
 
+function targetSearch(){
+    document.getElementById('search-bar').focus()
+}
+
 module.exports = {
     layoutChange,
-    renderInputClear
+    renderInputClear,
+    targetSearch
 }
