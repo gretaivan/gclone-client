@@ -1,3 +1,5 @@
+const apiFuncs = require('./api')
+
 function geolocate() {
     console.log("Geolocating")
     if (window.navigator && window.navigator.geolocation) {
@@ -5,10 +7,12 @@ function geolocate() {
    }
 }
 
-function onGeolocateSuccess(coordinates) {
+async function onGeolocateSuccess(coordinates) {
    const { latitude, longitude } = coordinates.coords;
    console.log('Found coordinates: ', latitude, longitude);
-  appendLocation(latitude, longitude); 
+   const data = await apiFuncs.getData(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=10&addressdetails=10`)
+   console.log(data.address.county, data.address.state)
+   appendLocation(latitude, longitude); 
 }
 
 function onGeolocateError(error) {
