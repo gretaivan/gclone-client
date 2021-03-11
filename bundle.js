@@ -4,9 +4,7 @@ async function getData(url = '') {
     // Default options are marked with *
     const response = await fetch(url, {
       method: 'GET', // *GET, POST, PUT, DELETE, etc.
-      mode: 'cors', // no-cors, *cors, same-origin
       cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: 'same-origin', // include, *same-origin, omit
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'    
@@ -21,6 +19,8 @@ async function getData(url = '') {
       getData
   }
 },{}],2:[function(require,module,exports){
+const apiFuncs = require('./api')
+
 function geolocate() {
     console.log("Geolocating")
     if (window.navigator && window.navigator.geolocation) {
@@ -28,10 +28,12 @@ function geolocate() {
    }
 }
 
-function onGeolocateSuccess(coordinates) {
+async function onGeolocateSuccess(coordinates) {
    const { latitude, longitude } = coordinates.coords;
    console.log('Found coordinates: ', latitude, longitude);
-  appendLocation(latitude, longitude); 
+   const data = await apiFuncs.getData(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=10&addressdetails=10`)
+   console.log(data.address.county, data.address.state)
+   appendLocation(data.address.county, data.address.state); 
 }
 
 function onGeolocateError(error) {
@@ -46,16 +48,16 @@ function onGeolocateError(error) {
    }
 }
 
-function appendLocation(latitude, longitude){
+function appendLocation(county, state){
     const footer = document.getElementById('location');
     //let locationText = document.createElement('p');
-    footer.innerHTML = `<p>latitude: ${latitude}, longitude: ${longitude}</p>`
+    footer.innerHTML = `<p>${county}, ${state}</p>`
 }
 
 geolocate();
 
 exports.modules = { geolocate  };
-},{}],3:[function(require,module,exports){
+},{"./api":1}],3:[function(require,module,exports){
 function layoutChange() {
     const searchArea = document.getElementsByClassName('search-container')[0]
     const form = document.querySelector('form')

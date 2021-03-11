@@ -4,6 +4,9 @@
 } */
 @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600&display=swap');
 
+* {
+    box-sizing: border-box;
+}
 
 h1{
   /* font-family: customFont; */
@@ -15,6 +18,7 @@ h1{
   font-weight: 600;
   display: flex;
   font-stretch: expanded;
+  margin-top: 0;
 }
  
 h1:first-of-type, h1 div:nth-of-type(3), h1 div:nth-of-type(5){
@@ -62,7 +66,7 @@ h1 div:nth-of-type(5){
   
   .parent, .child {
     border-radius: 50px;
-    height: 44px;
+    height: 46px;
   }
   
   .parent {
@@ -92,7 +96,7 @@ h1 div:nth-of-type(5){
   
   #search-bar {
     position: absolute;
-    height: 42px;
+    height: 44px;
     width: calc(90% - 144px);
     min-width: calc(360px - 122px);
     max-width: calc(584px - 122px);
@@ -101,6 +105,8 @@ h1 div:nth-of-type(5){
     border: none;
     color: rgba(0,0,0,.87);
     font-size: 16px;
+    cursor: text;
+    z-index: 3;
   }
 
   .child span {
@@ -131,7 +137,7 @@ h1 div:nth-of-type(5){
     user-select: none;
 }
 
-input[type="submit"]:hover, input[type="submit"]:focus {
+input[type="submit"]:hover {
     outline: none;
     box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
     background-color: #f8f9fa;
@@ -139,7 +145,7 @@ input[type="submit"]:hover, input[type="submit"]:focus {
     color: #202124;
 }
 
-input[type="submit"]:active {
+input[type="submit"]:active, input[type="submit"]:focus {
     outline: none;
     border-color: #1a73e8
 }
@@ -158,7 +164,7 @@ input[type="submit"]:active {
     background: none;
     border: none;
     color: #80868b;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     justify-content: center;
     align-items: center;
