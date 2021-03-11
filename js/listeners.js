@@ -8,12 +8,14 @@ function searchBarHelper() {
     searchbar.addEventListener("input", () => handlerFuncs.renderInputClear(searchbar.value))
 }
 
-const clearBtn = document.getElementById('clear-btn')
-clearBtn.addEventListener("click", (e) => {
-    e.preventDefault()
-    searchbar.value = ''
-    clearBtn.style.display = "none"
-})
+function clearBtnHelper() {
+    const clearBtn = document.getElementById('clear-btn')
+    clearBtn.addEventListener("click", (e) => {
+        e.preventDefault()
+        searchbar.value = ''
+        clearBtn.style.display = "none"
+    })
+}
 
 
 function searchButton() {
@@ -120,9 +122,12 @@ function generateListItem(result){
 
 
 module.exports = {
+    clearBtnHelper,
     luckyButton,
     searchButton,
-    searchBarHelper
+    searchBarHelper,
+    generateListItem,
+    appendList
 }
 
 //searchButton,  submitKeyword,

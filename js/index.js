@@ -22,6 +22,7 @@ document.getElementsByClassName('child')[0].addEventListener("click", () => {
 })
 
 listeners.searchBarHelper()
+listeners.clearBtnHelper()
 listeners.searchButton()
 listeners.luckyButton()
 
