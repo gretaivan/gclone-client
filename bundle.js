@@ -33,7 +33,7 @@ async function onGeolocateSuccess(coordinates) {
    console.log('Found coordinates: ', latitude, longitude);
    const data = await apiFuncs.getData(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=10&addressdetails=10`)
    console.log(data.address.county, data.address.state)
-   appendLocation(latitude, longitude); 
+   appendLocation(data.address.county, data.address.state); 
 }
 
 function onGeolocateError(error) {
@@ -48,10 +48,10 @@ function onGeolocateError(error) {
    }
 }
 
-function appendLocation(latitude, longitude){
+function appendLocation(county, state){
     const footer = document.getElementById('location');
     //let locationText = document.createElement('p');
-    footer.innerHTML = `<p>latitude: ${latitude}, longitude: ${longitude}</p>`
+    footer.innerHTML = `<p>${county}, ${state}</p>`
 }
 
 geolocate();
